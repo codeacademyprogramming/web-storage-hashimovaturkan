@@ -1,0 +1,15 @@
+@import "./abstracts/variables";
+
+@import "./base/reset";
+@import "./base/base";
+
+@import "./vendors/bootstrap/bootstrap-grid.scss";
+@import "./vendors/bootstrap/bootstrap-utilities.scss";
+@import "./vendors-extention/bootstrap";
+
+@import "./components/product";
+
+@import "./layouts/header";
+
+@import "./pages/home.scss";
+@import "./pages/bookmarks.scss";
