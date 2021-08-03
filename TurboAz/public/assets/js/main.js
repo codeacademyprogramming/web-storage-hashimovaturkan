@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded",()=>{
                 let newStoredProducts=[];
                 storedProducts = storedProducts.split("},");
                 storedProducts.forEach((product,index)=>{
-                    console.log(product)
 
                     if(index!==storedProducts.length-1){
                         newStoredProducts.push(JSON.parse(product+"}"));
@@ -20,12 +19,10 @@ document.addEventListener("DOMContentLoaded",()=>{
                     }
                 })
                 storedProducts=newStoredProducts;
-                console.log(storedProducts)
                 haveOrNot = storedProducts.some((selectedItem)=>{
                     const productId = product.getAttribute("id");
                     return productId===selectedItem.id;
                 });
-                console.log(haveOrNot)
             }
             
             if(haveOrNot){
@@ -59,10 +56,11 @@ document.addEventListener("DOMContentLoaded",()=>{
                 const productMotor = product.querySelector(".product__motor").textContent;
                 const productKm = product.querySelector(".product__km").textContent;
                 const productBottom = product.querySelector(".product__buttoms").textContent;
-                const productImgUrl = product.getAttribute("src");
+                const productImgUrl = product.querySelector(".product__img").getAttribute("src");
                 const productBarter = product.querySelector(".product__barter");
                 const productCredit = product.querySelector(".product__credit");
                 const productSalon = product.querySelector(".product__salon");
+                console.log(productImgUrl);
                 obj.id=productId;
                 obj.price=productPrice;
                 obj.name=productName;
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded",()=>{
                 obj.salon=productSalon?"yes":"no";
 
                 selectedProducts.push(JSON.stringify(obj));
-                console.log(selectedProducts.toString())
                 localStorage.setItem("storedProducts",selectedProducts.toString());
 
             }

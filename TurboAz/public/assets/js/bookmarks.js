@@ -21,32 +21,39 @@ document.addEventListener("DOMContentLoaded",()=>{
         productBox.classList.add("product__box");
         productBox.setAttribute("id",`${product.id}`);
         const productImgBox = document.createElement("div");
-        productImgBox.classList.add(".product__img-box");
+        productImgBox.classList.add("product__img-box");
         const productImg = document.createElement("img");
-        productImg.classList.add(".product__img");
+        productImg.classList.add("product__img");
         productImg.setAttribute("src",`${product.imgUrl}`);
         const productPrice = document.createElement("div");
-        productPrice.classList.add(".product__price");
+        productPrice.classList.add("product__price");
         productPrice.innerText=`${product.price}`;
         const productDesc = document.createElement("div");
-        productDesc.classList.add(".product__desc");
+        productDesc.classList.add("product__desc");
         const productName = document.createElement("h2")
-        productName.classList.add(".product__name");
+        productName.classList.add("product__name");
         productName.innerText=`${product.name}`;
         const productYear = document.createElement("span")
-        productName.classList.add(".product__year");
+        productName.classList.add("product__year");
         productName.innerText=`${product.year}`;
         const productMotor = document.createElement("span")
-        productName.classList.add(".product__motor");
+        productName.classList.add("product__motor");
         productName.innerText=`${product.motor}`;
         const productKm = document.createElement("span")
-        productName.classList.add(".product__km");
+        productName.classList.add("product__km");
         productName.innerText=`${product.km}`;
         const productAttributes= document.createElement("p");
-        productAttributes.classList.add(".product__attributes");
+        productAttributes.classList.add("product__attributes");
         const productBottom = document.createElement("p");
-        productBottom.classList.add(".product__buttoms");
+        productBottom.classList.add("product__buttoms");
         productBottom.innerText=`${product.bottom}`;
+        if(product.salon==="yes"){
+            const productSalon=document.createElement("span");
+            productSalon.innerText="SALON";
+            productSalon.classList.add("product__salon");
+            productImgBox.prepend(productSalon);
+
+        }
         
 
         productAttributes.prepend(productKm);
