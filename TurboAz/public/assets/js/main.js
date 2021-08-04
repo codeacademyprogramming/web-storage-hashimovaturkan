@@ -23,24 +23,28 @@ document.addEventListener("DOMContentLoaded",()=>{
                     const productId = product.getAttribute("id");
                     return productId===selectedItem.id;
                 });
-                console.log(haveOrNot)
-                console.log(storedProducts)
+
+                
+
             }
             
             if(haveOrNot){
+                
                 // localStorage.setItem("color","white")
                 // icon.style.fill=localStorage.getItem("color");
                 const productId = product.getAttribute("id");
                 selectedProducts=[];
-               // console.log(storedProducts);
                 storedProducts.forEach((product)=>{
                     if(productId!==product.id){
                         selectedProducts.push(JSON.stringify(product));
                     }
                 })
                 storedProducts=selectedProducts;
-                console.log(storedProducts)
-                //console.log(selectedProducts)
+
+                // selectedProducts.forEach((product)=>{
+                //     const findProduct = document.getElementById(`${product.id}`).querySelector(".product__icon");
+                //     findProduct.getElementsByClassName.fill="white";
+                // })
                 
                 localStorage.setItem("storedProducts",storedProducts.toString());
             }
