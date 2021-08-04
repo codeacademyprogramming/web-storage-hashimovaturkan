@@ -54,6 +54,13 @@ document.addEventListener("DOMContentLoaded",()=>{
             productImgBox.prepend(productSalon);
 
         }
+        // if(product.credit==="yes"){
+        //     const productSalon=document.createElement("span");
+        //     productSalon.innerHTML=;
+        //     productSalon.classList.add("product__credit");
+        //     productImgBox.prepend(productSalon);
+
+        // }
         
 
         productAttributes.prepend(productKm);

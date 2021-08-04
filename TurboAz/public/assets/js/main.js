@@ -23,32 +23,31 @@ document.addEventListener("DOMContentLoaded",()=>{
                     const productId = product.getAttribute("id");
                     return productId===selectedItem.id;
                 });
+                console.log(haveOrNot)
+                console.log(storedProducts)
             }
             
             if(haveOrNot){
-
+                // localStorage.setItem("color","white")
+                // icon.style.fill=localStorage.getItem("color");
                 const productId = product.getAttribute("id");
-                // selectedProducts = storedProducts.filter((product)=>{
-                //     // return id!==productId;
-                //     return product.id!==productId;
-                // })
                 selectedProducts=[];
+               // console.log(storedProducts);
                 storedProducts.forEach((product)=>{
                     if(productId!==product.id){
                         selectedProducts.push(JSON.stringify(product));
                     }
                 })
-                console.log(selectedProducts)
-                // selectedProducts = selectedProducts.map((product)=>{
-                //     return JSON.stringify(product);
-                // })
+                storedProducts=selectedProducts;
+                console.log(storedProducts)
+                //console.log(selectedProducts)
                 
-                localStorage.setItem("storedProducts",selectedProducts.toString());
+                localStorage.setItem("storedProducts",storedProducts.toString());
             }
             else{
+                // localStorage.setItem("color","red")
+                // icon.style.fill=localStorage.getItem("color");
                 const productId = product.getAttribute("id");
-                //selectedProducts.push(productId);
-                //localStorage.setItem("storedProducts",selectedProducts.toString());
                 const obj={};
                 const productPrice = product.querySelector(".product__price").textContent;
                 const productName = product.querySelector(".product__name").textContent;
@@ -60,7 +59,6 @@ document.addEventListener("DOMContentLoaded",()=>{
                 const productBarter = product.querySelector(".product__barter");
                 const productCredit = product.querySelector(".product__credit");
                 const productSalon = product.querySelector(".product__salon");
-                console.log(productImgUrl);
                 obj.id=productId;
                 obj.price=productPrice;
                 obj.name=productName;
@@ -73,16 +71,24 @@ document.addEventListener("DOMContentLoaded",()=>{
                 obj.credit=productCredit?"yes":"no";
                 obj.salon=productSalon?"yes":"no";
 
-                selectedProducts.push(JSON.stringify(obj));
-                localStorage.setItem("storedProducts",selectedProducts.toString());
+                if(storedProducts){
+                    selectedProducts=[];
+                    storedProducts.forEach((product)=>{
+                        selectedProducts.push(JSON.stringify(product));
+                    })
+                    selectedProducts.push(JSON.stringify(obj));
+                    localStorage.setItem("storedProducts",selectedProducts.toString());
+                }
+                else{
+                    selectedProducts.push(JSON.stringify(obj));
+                    localStorage.setItem("storedProducts",selectedProducts.toString());
+                }
 
             }
 
 
 
 
-            
-            //selectedProducts.push(product);
         })
     })
     
